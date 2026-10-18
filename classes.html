@@ -4,26 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Classes | The Mat Pilates Club</title>
-  <meta name="description" content="Mat Pilates classes for every level. 4 classes for £29 or 8 classes for £55.">
+  <meta name="description" content="45-minute mixed ability mat Pilates, Tuesdays 7:30pm at The Manor Hall, Coalpit Heath. Autumn intro offer: 4 classes for £36.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Anton&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/palette.js"></script>
 </head>
-<body>
+<body class="has-banner">
+  <a href="index.html#offer" class="banner">
+    <strong>Autumn Intro Offer</strong>
+    <span class="banner__sep">|</span>
+    <span>4 classes <s class="banner__was">£40</s> <b>£36</b></span>
+    <span class="banner__save">Save 10%</span>
+    <span class="banner__cta">Claim offer →</span>
+  </a>
 
   <header class="site-header site-header--solid">
     <div class="container">
-      <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
+      <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="classes.html" aria-current="page">Classes</a>
-        <a href="schedule.html">Schedule &amp; Booking</a>
+        <a href="schedule.html">Booking</a>
+        <a href="events.html">Events</a>
         <a href="contact.html">Contact</a>
-        <a href="schedule.html?pass=trial-4" class="btn btn--primary">Get a Trial Pass</a>
+        <a href="index.html#passes" class="btn btn--primary">Get a Trial Pass</a>
       </nav>
     </div>
   </header>
@@ -41,82 +52,168 @@
     <!-- Class types --------------------------------------------------- -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">What we offer</span>
-          <h2>The classes</h2>
-          <p>Placeholder descriptions: edit these to match the classes you actually run.</p>
+        <div class="section-head reveal expect">
+          <span class="eyebrow">What to expect</span>
+          <h2>Susie's classes</h2>
+          <p>
+            Expect intentional teaching that leaves you feeling challenged, and definitely feeling the burn!
+            We'll explore lots of layers and progressions while always staying grounded in the classical
+            Pilates principles, helping you build strength, progress with confidence and feel more connected
+            to your body. We'll move to thoughtfully curated playlists to keep you flowing and leave you
+            feeling good!
+          </p>
         </div>
-        <div class="cards">
-          <article class="card reveal">
-            <span class="card__num">60 min</span>
-            <h3>Mat Pilates · All Levels</h3>
-            <p>A full-body class building core strength, mobility and control, with options to make every move easier or harder.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card__num">60 min</span>
-            <h3>Mat Pilates · Beginners</h3>
-            <p>A slower pace with the fundamentals explained: breathing, alignment and the core principles of Pilates.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card__num">45 min</span>
-            <h3>Stretch &amp; Restore</h3>
-            <p>A gentler class focused on flexibility, release and recovery. The perfect reset for busy weeks.</p>
-          </article>
+
+        <div class="class-feature reveal">
+          <div>
+            <span class="eyebrow">Tuesdays</span>
+            <h2>Mixed Ability Mat Pilates</h2>
+            <p>
+              A 45-minute mixed ability mat Pilates class designed to leave you feeling stronger and more
+              connected to your body.
+            </p>
+            <p>
+              Expect an intentional full-body flow with a strong focus on control, breath and precision.
+              A chance to move well and leave feeling good.
+            </p>
+            <a href="https://bookwhen.com/thematpilatesclub" class="btn btn--primary">Book a Class</a>
+          </div>
+          <dl class="class-facts">
+            <div><dt>When</dt><dd>Tuesdays, 7:30pm – 8:15pm</dd></div>
+            <div><dt>Where</dt><dd>The Manor Hall, Coalpit Heath</dd></div>
+            <div><dt>Length</dt><dd>45 minutes</dd></div>
+            <div><dt>Level</dt><dd>Mixed ability, all welcome</dd></div>
+            <div><dt>Bring</dt><dd>Just water! Mats are included</dd></div>
+          </dl>
+        </div>
+
+        <!-- Hot Mat Flow at Elevate: description is a placeholder until Susie confirms the wording -->
+        <div class="class-feature class-feature--second reveal">
+          <div>
+            <span class="eyebrow">Thursdays · at Elevate</span>
+            <h2>Hot Mat Flow</h2>
+            <p>
+              A 50-minute flowing mat Pilates class in a heated studio, taught by Susie at
+              Elevate Pilates &amp; Wellness Club.
+            </p>
+            <p>
+              Expect a dynamic full-body flow that builds strength, mobility and control, with the
+              warmth helping you move deeper and leave feeling energised.
+            </p>
+            <p class="class-note">
+              This class is booked and paid for through Elevate's own booking page. The Mat Pilates Club
+              passes are for Tuesday classes only.
+            </p>
+            <a href="https://momence.com/u/elevate-pilates-and-wellness-club-INvK0q" target="_blank" rel="noopener" class="btn btn--primary">Book on Elevate ↗</a>
+          </div>
+          <dl class="class-facts">
+            <div><dt>When</dt><dd>Thursdays, 6:30pm – 7:20pm</dd></div>
+            <div><dt>Where</dt><dd>Elevate Pilates &amp; Wellness Club</dd></div>
+            <div><dt>Length</dt><dd>50 minutes</dd></div>
+            <div><dt>Style</dt><dd>Heated mat Pilates flow</dd></div>
+            <div><dt>Booking</dt><dd>Through Elevate</dd></div>
+          </dl>
+        </div>
+
+        <!-- Hot Mat Challenge at Elevate (description from Elevate's class listing) -->
+        <div class="class-feature class-feature--second reveal">
+          <div>
+            <span class="eyebrow">Thursdays · at Elevate · straight after Hot Mat Flow</span>
+            <h2>Hot Mat Challenge</h2>
+            <p>
+              An intermediate hot mat class using infrared heaters, which warm your muscles directly to boost
+              flexibility and circulation while you work. Expect a challenging full-body workout focused on
+              core strength, stability and powerful, strength-based movements.
+            </p>
+            <p>
+              Faster movements raise the intensity while you keep control and flow, building on the
+              fundamentals you know. Equipment will often be used to take your workout further.
+            </p>
+            <p class="class-note">
+              <strong>Good to know:</strong> a hot mat towel is included, socks must be worn at all times, and
+              please arrive 5 minutes early, as the door is locked once class starts. If you ever feel unwell,
+              dizzy or nauseous, stop, leave the room and let your instructor know straight away.
+              Booked through Elevate.
+            </p>
+            <a href="https://momence.com/u/elevate-pilates-and-wellness-club-INvK0q" target="_blank" rel="noopener" class="btn btn--primary">Book on Elevate ↗</a>
+          </div>
+          <dl class="class-facts">
+            <div><dt>When</dt><dd>Thursdays, 7:30pm – 8:20pm</dd></div>
+            <div><dt>Where</dt><dd>Elevate Pilates &amp; Wellness Club</dd></div>
+            <div><dt>Length</dt><dd>50 minutes</dd></div>
+            <div><dt>Level</dt><dd>Intermediate</dd></div>
+            <div><dt>Included</dt><dd>Hot mat towel · wear socks</dd></div>
+            <div><dt>Booking</dt><dd>Through Elevate</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- Pricing ------------------------------------------------------- -->
-    <section class="section section--sand">
+    <!-- Passes -------------------------------------------------------- -->
+    <section class="section section--sand" id="passes">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Pricing</span>
-          <h2>Class passes</h2>
-          <p>Choose your pass when you book a class.</p>
+          <span class="eyebrow">Passes</span>
+          <h2>Find your way in</h2>
+          <p>Pick the pass that suits you, then book your Tuesday classes. Thursday hot classes at Elevate are booked through Elevate.</p>
         </div>
-        <div class="pricing">
-          <article class="price-card reveal">
-            <h3>Trial Pass</h3>
-            <div class="price-card__price">£29</div>
-            <div class="price-card__per">4 classes · £7.25 per class</div>
-            <ul>
-              <li>Perfect for first-timers</li>
-              <li>Mix and match any class</li>
-              <li>Valid for [X] weeks</li>
-            </ul>
-            <a href="schedule.html?pass=trial-4" class="btn btn--outline">Get a Trial Pass</a>
-          </article>
 
+        <!-- PASSES (index.html has the same passes with homepage-specific wording) -->
+        <div class="pricing pricing--four">
           <article class="price-card price-card--featured reveal">
-            <span class="price-card__badge">Best value</span>
-            <h3>8 Class Pass</h3>
-            <div class="price-card__price">£55</div>
-            <div class="price-card__per">8 classes · £6.88 per class</div>
+            <span class="price-card__badge">Autumn intro offer</span>
+            <h3>Intro Pack</h3>
+            <div class="price-card__price">£36 <s class="price-was">£40</s></div>
+            <div class="price-save">Save £4 (10%)</div>
+            <div class="price-card__per">4 classes · £9 each</div>
+            <p class="price-card__note">New to the club? Four weekly classes to find your feet, settle in and feel the difference.</p>
             <ul>
-              <li>Build a twice-weekly habit</li>
-              <li>Mix and match any class</li>
-              <li>Valid for [X] weeks</li>
+              <li>Room to miss a week</li>
             </ul>
-            <a href="schedule.html?pass=pack-8" class="btn btn--primary">Book 8 Classes</a>
+            <a href="https://bookwhen.com/thematpilatesclub" class="btn btn--primary">Book Intro Pack</a>
           </article>
 
           <article class="price-card reveal">
-            <h3>Drop-in</h3>
-            <div class="price-card__price">£[X]</div>
-            <div class="price-card__per">single class</div>
+            <span class="price-card__badge price-card__badge--soft">Best value</span>
+            <h3>8 Class Pack</h3>
+            <div class="price-card__price">£64 <s class="price-was">£80</s></div>
+            <div class="price-save">Save £16 (20%)</div>
+            <div class="price-card__per">8 classes · £8 each</div>
+            <p class="price-card__note">Make Pilates part of your week. Two months of classes to build strength and a routine that sticks.</p>
             <ul>
-              <li>No commitment</li>
-              <li>Subject to availability</li>
-              <li>Great for visitors</li>
+              <li>Lowest price per class</li>
             </ul>
-            <a href="schedule.html?pass=drop-in" class="btn btn--outline">Book a Drop-in</a>
+            <a href="https://bookwhen.com/thematpilatesclub" class="btn btn--outline">Book 8 Classes</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Private Start Pack</h3>
+            <div class="price-card__price">£65</div>
+            <div class="price-card__per">1 private session + 3 classes</div>
+            <p class="price-card__note">Nervous about joining a class? Start one-to-one to learn the basics at your own pace, then join the group feeling confident.</p>
+            <ul>
+              <li>Personalised 1:1 introduction</li>
+            </ul>
+            <a href="https://bookwhen.com/thematpilatesclub" class="btn btn--outline">Book Private Start</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Single Class</h3>
+            <div class="price-card__price">£10</div>
+            <div class="price-card__per">1 class · pay as you go</div>
+            <p class="price-card__note">No commitment. Book a single class whenever it suits you.</p>
+            <ul>
+              <li>Any Tuesday class</li>
+              <li>Subject to availability</li>
+            </ul>
+            <a href="https://bookwhen.com/thematpilatesclub" class="btn btn--outline">Book a Class</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- FAQ ----------------------------------------------------------- -->
-    <section class="section">
+    <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Good to know</span>
@@ -125,15 +222,31 @@
         <div class="faq reveal">
           <details>
             <summary>I've never done Pilates. Is that okay?</summary>
-            <p>Absolutely. Every class includes options for beginners, and the trial pass is designed for exactly this.</p>
+            <p>Absolutely. Every class includes options for beginners, and the Intro Pack is designed for exactly this. If you'd like a gentler start, the Private Start Pack begins with a one-to-one session.</p>
+          </details>
+          <details>
+            <summary>Do I need to book in advance?</summary>
+            <p>Yes, please book ahead. Classes are kept small, so spaces are limited and often fill up. You can see upcoming classes and book on the <a href="schedule.html">Booking</a> page.</p>
+          </details>
+          <details>
+            <summary>What happens if a class is full?</summary>
+            <p><a href="contact.html?pass=waitlist">Join the waiting list</a> and we'll contact you straight away if a space opens up. Spaces go to the waiting list in the order people joined.</p>
+          </details>
+          <details>
+            <summary>Can I switch my booking if something comes up?</summary>
+            <p>Of course. Just message us on Instagram or by email at least 24 hours before your class and we'll move you to another class at no cost.</p>
+          </details>
+          <details id="faq-cancellation">
+            <summary>What's your cancellation policy?</summary>
+            <p>Cancel at least 24 hours before your class and it goes straight back onto your pack. Late cancellations and no-shows count as a used class, as that space could have gone to someone on the waiting list.</p>
           </details>
           <details>
             <summary>What should I bring?</summary>
-            <p>Comfortable clothes you can move in, a water bottle, and a mat if you have one. Spare mats are available.</p>
+            <p>Just water! Mats are included. Wear comfortable clothes you can move in.</p>
           </details>
           <details>
             <summary>How do I book?</summary>
-            <p>Head to the Schedule &amp; Booking page, pick a class and choose your pass. It takes less than a minute.</p>
+            <p>Tap any <strong>Book</strong> button or head to the <a href="schedule.html">Booking</a> page. Bookings and payments are handled securely through Bookwhen and take less than a minute.</p>
           </details>
           <details>
             <summary>I have an injury or I'm pregnant. Can I join?</summary>
@@ -143,31 +256,46 @@
       </div>
     </section>
 
-    <section class="section section--ink">
-      <div class="container center reveal">
-        <span class="eyebrow">Ready?</span>
-        <h2>Your first class is waiting</h2>
-        <p style="opacity:.8; margin-bottom: 2rem;">4 classes for £29. The easiest way to see if it's for you.</p>
-        <a href="schedule.html?pass=trial-4" class="btn btn--primary">Get a Trial Pass</a>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
-        <nav class="footer-links">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
+          <p>Small, welcoming mat Pilates classes in Coalpit Heath, Bristol. Taught by a STOTT PILATES® certified instructor.</p>
+          <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @pilatesbysus_
+          </a>
+        </div>
+
+        <nav class="footer-col" aria-label="Pages">
+          <h4>Explore</h4>
           <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="classes.html">Classes</a>
-          <a href="schedule.html">Schedule &amp; Booking</a>
+          <a href="schedule.html">Booking</a>
+          <a href="events.html">Events</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          @pilatesbysus_
-        </a>
+
+        <nav class="footer-col" aria-label="Quick links">
+          <h4>Quick links</h4>
+          <a href="classes.html#faq">FAQs</a>
+          <a href="index.html#passes">Passes &amp; pricing</a>
+          <a href="index.html#schedule">Weekly timetable</a>
+          <a href="https://bookwhen.com/thematpilatesclub">Book a class</a>
+          <a href="contact.html?pass=waitlist">Join the waiting list</a>
+          <a href="classes.html#faq-cancellation">Cancellation policy</a>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>The Manor Hall<br>Coalpit Heath, Bristol</p>
+          <p>Elevate Pilates &amp; Wellness Club</p>
+          <a href="mailto:studio@thematpilatesclub.co.uk">studio@thematpilatesclub.co.uk</a>
+        </div>
       </div>
       <div class="footer-bottom">© <span data-year></span> The Mat Pilates Club</div>
     </div>

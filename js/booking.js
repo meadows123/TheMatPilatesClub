@@ -1,6 +1,6 @@
 // Schedule & booking — reads classes from Supabase and books via the
-// `book_class` function (see supabase/schema.sql). Falls back to demo data
-// until js/supabase-config.js is filled in.
+// `book_class` / `join_waitlist` functions (see supabase/schema.sql).
+// Falls back to demo data until js/supabase-config.js is filled in.
 
 const config = window.SUPABASE_CONFIG || {};
 const db =
@@ -28,7 +28,7 @@ async function fetchClasses() {
   return data;
 }
 
-async function createBooking({ classId, name, email, phone, pass }) {
+async function createBooking({ classId, name, email, phone, pass, code }) {
   if (!db) {
     const cls = demoStore.find((c) => c.id === classId);
     if (!cls || cls.spots_left <= 0) throw new Error("Sorry, this class is now full.");
@@ -42,6 +42,19 @@ async function createBooking({ classId, name, email, phone, pass }) {
     p_email: email,
     p_phone: phone || null,
     p_pass_type: pass,
+    p_discount_code: code || null,
+  });
+  if (error) throw new Error(error.message);
+}
+
+async function joinWaitlist({ classId, name, email, phone }) {
+  if (!db) return;
+
+  const { error } = await db.rpc("join_waitlist", {
+    p_class_id: classId,
+    p_name: name,
+    p_email: email,
+    p_phone: phone || null,
   });
   if (error) throw new Error(error.message);
 }
@@ -49,9 +62,7 @@ async function createBooking({ classId, name, email, phone, pass }) {
 // Demo data — mirrors the shape of the class_schedule view ----------------
 
 const WEEKLY_TEMPLATE = [
-  { day: 1, time: "19:00", title: "Mat Pilates", level: "All levels" },
-  { day: 3, time: "18:30", title: "Mat Pilates", level: "Beginners" },
-  { day: 6, time: "09:00", title: "Mat Pilates", level: "All levels" },
+  { day: 2, time: "19:30", title: "Mat Pilates", level: "All levels" }, // Tuesdays
 ];
 
 let demoStore = null;
@@ -73,7 +84,7 @@ function demoClasses() {
         level: t.level,
         starts_at: starts.toISOString(),
         duration_min: 60,
-        location: "[Venue]",
+        location: "The Manor Hall, Coalpit Heath",
         capacity: 12,
         spots_left: [12, 7, 2, 0][(i + n) % 4],
       });
@@ -108,20 +119,29 @@ function escapeHtml(s) {
 
 const tabsEl = document.querySelector(".day-tabs");
 const listEl = document.querySelector(".class-list");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal:not(.promo)");
 const form = document.querySelector(".booking-form");
 const errorEl = form.querySelector(".form__error");
 const summaryEl = modal.querySelector(".modal__summary");
+const titleEl = modal.querySelector("#booking-title");
+const passRow = form.querySelector(".booking-pass-row");
+const submitBtn = form.querySelector('button[type="submit"]');
+const doneTitle = modal.querySelector(".booking-done__title");
 const doneMsg = modal.querySelector(".booking-done__msg");
 
 let classes = [];
 let selectedDay = dayKey(new Date());
 let selectedClass = null;
+let mode = "book"; // or "waitlist"
 
 if (!db) document.querySelector(".notice").hidden = false;
 
-const passParam = new URLSearchParams(window.location.search).get("pass");
-if (passParam) form.pass.value = passParam;
+const params = new URLSearchParams(window.location.search);
+function applyUrlDefaults() {
+  if (params.get("pass")) form.pass.value = params.get("pass");
+  if (params.get("code")) form.code.value = params.get("code");
+}
+applyUrlDefaults();
 
 async function load() {
   try {
@@ -168,7 +188,7 @@ function render() {
       const end = new Date(start.getTime() + c.duration_min * 60000);
       const full = c.spots_left <= 0;
       const spots = full
-        ? `<span class="spots spots--full">Fully booked</span>`
+        ? `<span class="spots spots--full">Fully booked · waiting list open</span>`
         : `<span class="spots ${c.spots_left <= 3 ? "spots--low" : ""}">${c.spots_left} ${c.spots_left === 1 ? "space" : "spaces"} left</span>`;
       return `
         <article class="class-item">
@@ -178,22 +198,33 @@ function render() {
             <div class="class-item__meta">${escapeHtml(c.level)} · ${escapeHtml(c.location)}</div>
             ${spots}
           </div>
-          <button class="btn ${full ? "btn--outline" : "btn--primary"}" data-id="${escapeHtml(c.id)}" ${full ? "disabled" : ""}>
-            ${full ? "Full" : "Book"}
+          <button class="btn ${full ? "btn--outline" : "btn--primary"}" data-id="${escapeHtml(c.id)}" data-mode="${full ? "waitlist" : "book"}">
+            ${full ? "Join Waiting List" : "Book"}
           </button>
         </article>`;
     })
     .join("");
 
   listEl.querySelectorAll("button[data-id]").forEach((btn) =>
-    btn.addEventListener("click", () => openModal(classes.find((c) => String(c.id) === btn.dataset.id)))
+    btn.addEventListener("click", () =>
+      openModal(classes.find((c) => String(c.id) === btn.dataset.id), btn.dataset.mode)
+    )
   );
 }
 
-function openModal(cls) {
+function openModal(cls, newMode) {
   selectedClass = cls;
+  mode = newMode;
+  const waitlist = mode === "waitlist";
   const start = new Date(cls.starts_at);
-  summaryEl.innerHTML = `<strong>${escapeHtml(cls.title)}</strong> · ${escapeHtml(cls.level)}<br>${fmtLong(start)} at ${fmtTime(start)}<br>${escapeHtml(cls.location)}`;
+
+  titleEl.textContent = waitlist ? "Join the waiting list" : "Book this class";
+  submitBtn.textContent = waitlist ? "Join Waiting List" : "Confirm Booking";
+  passRow.hidden = waitlist;
+  summaryEl.innerHTML =
+    `<strong>${escapeHtml(cls.title)}</strong> · ${escapeHtml(cls.level)}<br>${fmtLong(start)} at ${fmtTime(start)}<br>${escapeHtml(cls.location)}` +
+    (waitlist ? `<br><em>This class is full. We'll contact you if a space opens up.</em>` : "");
+
   errorEl.classList.remove("is-shown");
   modal.classList.remove("is-done");
   modal.classList.add("is-open");
@@ -215,29 +246,38 @@ document.addEventListener("keydown", (e) => {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const submit = form.querySelector('button[type="submit"]');
-  submit.disabled = true;
+  submitBtn.disabled = true;
   errorEl.classList.remove("is-shown");
 
+  const details = {
+    classId: selectedClass.id,
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim(),
+    pass: form.pass.value,
+    code: form.code.value.trim().toUpperCase(),
+  };
+
   try {
-    await createBooking({
-      classId: selectedClass.id,
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      phone: form.phone.value.trim(),
-      pass: form.pass.value,
-    });
     const start = new Date(selectedClass.starts_at);
-    doneMsg.textContent = `See you on ${fmtLong(start)} at ${fmtTime(start)}. Bring water and comfy clothes, and arrive 5 minutes early.`;
+    if (mode === "waitlist") {
+      await joinWaitlist(details);
+      doneTitle.textContent = "You're on the list!";
+      doneMsg.textContent = `We'll be in touch if a space opens up for ${fmtLong(start)} at ${fmtTime(start)}.`;
+    } else {
+      await createBooking(details);
+      doneTitle.textContent = "You're booked!";
+      doneMsg.textContent = `See you on ${fmtLong(start)} at ${fmtTime(start)}. Bring water and comfy clothes, and arrive 5 minutes early.`;
+    }
     modal.classList.add("is-done");
     form.reset();
-    if (passParam) form.pass.value = passParam;
+    applyUrlDefaults();
     await load();
   } catch (err) {
     errorEl.textContent = err.message || "Something went wrong. Please try again.";
     errorEl.classList.add("is-shown");
   } finally {
-    submit.disabled = false;
+    submitBtn.disabled = false;
   }
 });
 

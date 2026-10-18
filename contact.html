@@ -7,23 +7,34 @@
   <meta name="description" content="Book a trial pass or get in touch with The Mat Pilates Club.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Anton&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/palette.js"></script>
 </head>
-<body>
+<body class="has-banner">
+  <a href="index.html#offer" class="banner">
+    <strong>Autumn Intro Offer</strong>
+    <span class="banner__sep">|</span>
+    <span>4 classes <s class="banner__was">£40</s> <b>£36</b></span>
+    <span class="banner__save">Save 10%</span>
+    <span class="banner__cta">Claim offer →</span>
+  </a>
 
   <header class="site-header site-header--solid">
     <div class="container">
-      <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
+      <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="classes.html">Classes</a>
-        <a href="schedule.html">Schedule &amp; Booking</a>
+        <a href="schedule.html">Booking</a>
+        <a href="events.html">Events</a>
         <a href="contact.html" aria-current="page">Contact</a>
-        <a href="schedule.html?pass=trial-4" class="btn btn--primary">Get a Trial Pass</a>
+        <a href="index.html#passes" class="btn btn--primary">Get a Trial Pass</a>
       </nav>
     </div>
   </header>
@@ -48,18 +59,19 @@
             <dt>Instagram</dt>
             <dd><a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener">@pilatesbysus_</a></dd>
             <dt>Email</dt>
-            <dd><a href="mailto:hello@example.com">[email address]</a></dd>
+            <dd><a href="mailto:studio@thematpilatesclub.co.uk">studio@thematpilatesclub.co.uk</a></dd>
             <dt>Where</dt>
-            <dd>[Venue name &amp; address]</dd>
+            <dd>The Manor Hall, Coalpit Heath<br><span style="color: var(--ink-soft); font-size: .95rem;">Tuesdays at 7:30pm</span></dd>
+            <dd style="margin-top: 12px;">Elevate Pilates &amp; Wellness Club<br><span style="color: var(--ink-soft); font-size: .95rem;">Thursdays: Hot Mat Flow 6:30pm &amp; Hot Mat Challenge 7:30pm (book via <a href="https://momence.com/u/elevate-pilates-and-wellness-club-INvK0q" target="_blank" rel="noopener">Elevate</a>)</span></dd>
           </dl>
         </div>
 
         <!--
-          This form currently shows a thank-you message only.
-          To receive submissions, connect a free service such as Formspree or Netlify Forms:
-          e.g. <form action="https://formspree.io/f/YOUR_ID" method="POST"> and remove the JS handler.
+          Enquiries are emailed to studio@thematpilatesclub.co.uk via Web3Forms (web3forms.com, free).
+          SETUP: once the mailbox works, get an access key at web3forms.com using that email address
+          and paste it into data-access-key below. Until then, "Send" opens the visitor's email app instead.
         -->
-        <form class="form contact-form reveal">
+        <form class="form contact-form reveal" data-access-key="" data-to="studio@thematpilatesclub.co.uk">
           <div class="form__row">
             <div>
               <label for="name">Name</label>
@@ -73,9 +85,12 @@
           <div>
             <label for="pass">I'm interested in</label>
             <select id="pass" name="pass">
-              <option value="trial-4">Trial Pass: 4 classes for £29</option>
-              <option value="pack-8">8 Class Pass: £55</option>
-              <option value="drop-in">Drop-in class</option>
+              <option value="intro-4">Intro Pack: 4 classes for £36</option>
+              <option value="pack-8">8 Class Pack: £64</option>
+              <option value="private-intro">Private Start Pack: 1 private + 3 classes for £65</option>
+              <option value="single">Single class: £10</option>
+              <option value="waitlist">Joining a waiting list</option>
+              <option value="events">Events: register interest</option>
               <option value="other">Just a question</option>
             </select>
           </div>
@@ -83,10 +98,13 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Any injuries, experience level, or questions…"></textarea>
           </div>
+          <!-- Spam trap: hidden from people, bots fill it in -->
+          <input type="checkbox" name="botcheck" class="form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div>
             <button type="submit" class="btn btn--primary">Send Message</button>
           </div>
-          <p class="form__success">Thank you! Your message is on its way. I'll be in touch soon.</p>
+          <p class="form__error" role="alert"></p>
+          <p class="form__success" role="status">Thank you! Your message is on its way. I'll be in touch soon.</p>
         </form>
 
       </div>
@@ -96,18 +114,42 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
-        <nav class="footer-links">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
+          <p>Small, welcoming mat Pilates classes in Coalpit Heath, Bristol. Taught by a STOTT PILATES® certified instructor.</p>
+          <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @pilatesbysus_
+          </a>
+        </div>
+
+        <nav class="footer-col" aria-label="Pages">
+          <h4>Explore</h4>
           <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="classes.html">Classes</a>
-          <a href="schedule.html">Schedule &amp; Booking</a>
+          <a href="schedule.html">Booking</a>
+          <a href="events.html">Events</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          @pilatesbysus_
-        </a>
+
+        <nav class="footer-col" aria-label="Quick links">
+          <h4>Quick links</h4>
+          <a href="classes.html#faq">FAQs</a>
+          <a href="index.html#passes">Passes &amp; pricing</a>
+          <a href="index.html#schedule">Weekly timetable</a>
+          <a href="https://bookwhen.com/thematpilatesclub">Book a class</a>
+          <a href="contact.html?pass=waitlist">Join the waiting list</a>
+          <a href="classes.html#faq-cancellation">Cancellation policy</a>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>The Manor Hall<br>Coalpit Heath, Bristol</p>
+          <p>Elevate Pilates &amp; Wellness Club</p>
+          <a href="mailto:studio@thematpilatesclub.co.uk">studio@thematpilatesclub.co.uk</a>
+        </div>
       </div>
       <div class="footer-bottom">© <span data-year></span> The Mat Pilates Club</div>
     </div>

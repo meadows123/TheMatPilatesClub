@@ -3,27 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schedule &amp; Booking | The Mat Pilates Club</title>
-  <meta name="description" content="See upcoming mat Pilates classes and book your space.">
+  <title>Booking | The Mat Pilates Club</title>
+  <meta name="description" content="Book mat Pilates classes: Tuesdays 7:30pm at The Manor Hall, Coalpit Heath.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Anton&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/palette.js"></script>
 </head>
-<body>
+<body class="has-banner">
+  <a href="index.html#offer" class="banner">
+    <strong>Autumn Intro Offer</strong>
+    <span class="banner__sep">|</span>
+    <span>4 classes <s class="banner__was">£40</s> <b>£36</b></span>
+    <span class="banner__save">Save 10%</span>
+    <span class="banner__cta">Claim offer →</span>
+  </a>
 
   <header class="site-header site-header--solid">
     <div class="container">
-      <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
+      <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="classes.html">Classes</a>
-        <a href="schedule.html" aria-current="page">Schedule &amp; Booking</a>
+        <a href="schedule.html" aria-current="page">Booking</a>
+        <a href="events.html">Events</a>
         <a href="contact.html">Contact</a>
-        <a href="schedule.html?pass=trial-4" class="btn btn--primary">Get a Trial Pass</a>
+        <a href="index.html#passes" class="btn btn--primary">Get a Trial Pass</a>
       </nav>
     </div>
   </header>
@@ -32,100 +43,127 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Schedule &amp; Booking</span>
+        <span class="eyebrow">Booking</span>
         <h1>Book your space</h1>
-        <p>Pick a day, choose your class and reserve your mat. Classes are kept small, so book ahead.</p>
+        <p>Choose your class and reserve your mat. Classes are kept small, so book ahead.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container" style="max-width: 860px;">
-        <p class="notice" hidden>
-          Demo mode: showing sample classes. Live booking switches on once Supabase is connected in <code>js/supabase-config.js</code>.
-        </p>
+    <section class="section" id="book" style="padding-top: 48px;">
+      <div class="container">
 
-        <div class="day-tabs" role="tablist" aria-label="Choose a day"></div>
-        <div class="class-list" aria-live="polite">
-          <div class="empty-state">Loading timetable…</div>
+        <ol class="steps">
+          <li><span class="steps__num">1</span><div><strong>Choose a class</strong><small>Pick a date from the timetable</small></div></li>
+          <li><span class="steps__num">2</span><div><strong>Select your pass</strong><small>Single class or a class pack</small></div></li>
+          <li><span class="steps__num">3</span><div><strong>See you on the mat</strong><small>Confirmation sent by email</small></div></li>
+        </ol>
+
+        <div class="booking-layout">
+
+          <!-- Live timetable and booking from Bookwhen (bookwhen.com/thematpilatesclub) -->
+          <div class="booking-panel">
+            <div class="booking-panel__head">
+              <div>
+                <h2>Upcoming classes</h2>
+                <span class="booking-panel__secure">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/></svg>
+                  Secure booking &amp; payment by Bookwhen
+                </span>
+              </div>
+              <a href="https://bookwhen.com/thematpilatesclub" target="_blank" rel="noopener" class="booking-panel__open">Open full page ↗</a>
+            </div>
+            <iframe src="https://bookwhen.com/thematpilatesclub/iframe" title="Book a class with The Mat Pilates Club" loading="lazy"></iframe>
+          </div>
+
+          <aside class="booking-aside">
+            <div class="aside-card">
+              <h3>Tuesday class</h3>
+              <dl class="aside-facts">
+                <div><dt>When</dt><dd>Tuesdays, 7:30pm – 8:15pm</dd></div>
+                <div><dt>Where</dt><dd>The Manor Hall, Coalpit Heath</dd></div>
+                <div><dt>Class</dt><dd>45 min · mixed ability</dd></div>
+                <div><dt>Bring</dt><dd>Water. Mats are included</dd></div>
+              </dl>
+            </div>
+
+            <div class="aside-card aside-card--highlight">
+              <h3>Thursdays at Elevate</h3>
+              <dl class="aside-facts">
+                <div><dt>6:30pm – 7:20pm</dt><dd>Hot Mat Flow · 50 min</dd></div>
+                <div><dt>7:30pm – 8:20pm</dt><dd>Hot Mat Challenge · 50 min · intermediate</dd></div>
+                <div><dt>Where</dt><dd>Elevate Pilates &amp; Wellness Club</dd></div>
+              </dl>
+              <p class="aside-note">Booked through Elevate's own page, not the calendar here.</p>
+              <a href="https://momence.com/u/elevate-pilates-and-wellness-club-INvK0q" target="_blank" rel="noopener" class="btn btn--outline btn--block">Book Thursday Classes ↗</a>
+            </div>
+
+            <div class="aside-card">
+              <h3>Passes</h3>
+              <ul class="aside-prices">
+                <li><span>Intro Pack <em>Autumn offer</em></span><strong><s class="aside-was">£40</s> £36</strong></li>
+                <li><span>8 Class Pack</span><strong><s class="aside-was">£80</s> £64</strong></li>
+                <li><span>Private Start Pack</span><strong>£65</strong></li>
+                <li><span>Single Class</span><strong>£10</strong></li>
+              </ul>
+              <a href="index.html#passes" class="aside-link">Compare passes →</a>
+            </div>
+
+            <div class="aside-card aside-card--soft" id="waitlist">
+              <h3>Need a hand?</h3>
+              <p>Class full? <a href="contact.html?pass=waitlist">Join the waiting list</a> and we'll let you know if a space opens up.</p>
+              <p>Questions? See the <a href="classes.html#faq">FAQs</a> or <a href="contact.html">get in touch</a>.</p>
+            </div>
+          </aside>
+
         </div>
-      </div>
-    </section>
-
-    <section class="section section--ink">
-      <div class="container center">
-        <span class="eyebrow">New here?</span>
-        <h2>Start with a trial pass</h2>
-        <p style="opacity:.8; margin-bottom: 2rem;">4 classes for £29 or 8 classes for £55. Choose your pass when you book.</p>
-        <a href="classes.html" class="btn btn--light">See classes &amp; pricing</a>
       </div>
     </section>
 
   </main>
 
-  <!-- Booking modal -->
-  <div class="modal" aria-hidden="true">
-    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="booking-title">
-      <button class="modal__close" data-close aria-label="Close">&times;</button>
-
-      <form class="form booking-form">
-        <h2 id="booking-title" style="font-size: 2.2rem;">Book this class</h2>
-        <div class="modal__summary"></div>
-        <div>
-          <label for="b-name">Name</label>
-          <input id="b-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="form__row">
-          <div>
-            <label for="b-email">Email</label>
-            <input id="b-email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div>
-            <label for="b-phone">Phone <span style="opacity:.6">(optional)</span></label>
-            <input id="b-phone" name="phone" type="tel" autocomplete="tel">
-          </div>
-        </div>
-        <div>
-          <label for="b-pass">Pass</label>
-          <select id="b-pass" name="pass">
-            <option value="trial-4">Trial Pass: 4 classes for £29</option>
-            <option value="pack-8">8 Class Pass: £55</option>
-            <option value="drop-in">Drop-in class</option>
-          </select>
-        </div>
-        <p class="form__error" role="alert"></p>
-        <button type="submit" class="btn btn--primary">Confirm Booking</button>
-      </form>
-
-      <div class="booking-done">
-        <h2 style="font-size: 2.2rem;">You're booked!</h2>
-        <p class="booking-done__msg"></p>
-        <button class="btn btn--outline" data-close>Done</button>
-      </div>
-    </div>
-  </div>
-
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <a href="index.html" class="logo">The Mat<span>Pilates Club</span></a>
-        <nav class="footer-links">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
+          <p>Small, welcoming mat Pilates classes in Coalpit Heath, Bristol. Taught by a STOTT PILATES® certified instructor.</p>
+          <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @pilatesbysus_
+          </a>
+        </div>
+
+        <nav class="footer-col" aria-label="Pages">
+          <h4>Explore</h4>
           <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="classes.html">Classes</a>
-          <a href="schedule.html">Schedule &amp; Booking</a>
+          <a href="schedule.html">Booking</a>
+          <a href="events.html">Events</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <a href="https://www.instagram.com/pilatesbysus_/" target="_blank" rel="noopener" class="footer-insta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          @pilatesbysus_
-        </a>
+
+        <nav class="footer-col" aria-label="Quick links">
+          <h4>Quick links</h4>
+          <a href="classes.html#faq">FAQs</a>
+          <a href="index.html#passes">Passes &amp; pricing</a>
+          <a href="index.html#schedule">Weekly timetable</a>
+          <a href="https://bookwhen.com/thematpilatesclub">Book a class</a>
+          <a href="contact.html?pass=waitlist">Join the waiting list</a>
+          <a href="classes.html#faq-cancellation">Cancellation policy</a>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>The Manor Hall<br>Coalpit Heath, Bristol</p>
+          <p>Elevate Pilates &amp; Wellness Club</p>
+          <a href="mailto:studio@thematpilatesclub.co.uk">studio@thematpilatesclub.co.uk</a>
+        </div>
       </div>
       <div class="footer-bottom">© <span data-year></span> The Mat Pilates Club</div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/booking.js"></script>
 </body>
 </html>

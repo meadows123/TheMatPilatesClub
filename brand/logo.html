@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logo | The Mat Pilates Club</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/palette.js"></script>
+  <style>
+    body { padding: 48px 0 96px; }
+    .sheet { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .tile { border-radius: var(--radius); min-height: 260px; display: grid; place-items: center; padding: 32px; }
+    .tile--light { background: var(--white); color: var(--ink); border: 1px solid rgba(var(--ink-rgb), .08); }
+    .tile--cream { background: var(--cream); color: var(--ink); border: 1px solid rgba(var(--ink-rgb), .08); }
+    .tile--dark { background: var(--ink); color: var(--cream); }
+    .tile--accent { background: var(--clay); color: var(--white); --fig: var(--white); }
+    .label { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-soft); margin: 40px 0 12px; }
+
+    /* Logo pieces */
+    .lockup { display: inline-flex; align-items: center; gap: 14px; }
+    .lockup--stacked { flex-direction: column; gap: 10px; text-align: center; }
+    .word { font-family: var(--font-display); font-weight: 600; line-height: 1; letter-spacing: .01em; }
+    .word span { display: block; font-family: var(--font-body); font-weight: 500; text-transform: uppercase; opacity: .8; }
+    .word--h { font-size: 34px; } .word--h span { font-size: 9.5px; letter-spacing: .42em; margin-top: 6px; }
+    .word--s { font-size: 48px; } .word--s span { font-size: 12px; letter-spacing: .5em; margin-top: 10px; margin-right: -.5em; }
+    .mark { display: block; }
+
+    /* Export mode: ?only=<variant> renders a single variant filling the window */
+    .export body, body.export { padding: 0; margin: 0; background: transparent; }
+    body.export .page { display: none; }
+    body.export #export { display: grid; place-items: center; width: 100vw; height: 100vh; }
+    #export { display: none; }
+  </style>
+</head>
+<body data-no-promo>
+  <div class="page container">
+    <span class="eyebrow">Brand</span>
+    <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem);">The Mat Pilates Club logo</h1>
+    <p style="color: var(--ink-soft); max-width: 640px;">A simple line figure holding a teaser (V-sit) on her mat, paired with the serif wordmark. The figure takes the accent colour, so it follows whichever colour palette is chosen.</p>
+
+    <p class="label">Primary (horizontal): website header, emails, documents</p>
+    <div class="sheet">
+      <div class="tile tile--light" data-v="horizontal"></div>
+      <div class="tile tile--dark" data-v="horizontal"></div>
+      <div class="tile tile--accent" data-v="horizontal"></div>
+    </div>
+
+    <p class="label">Stacked: posters, flyers, social posts</p>
+    <div class="sheet">
+      <div class="tile tile--cream" data-v="stacked"></div>
+      <div class="tile tile--dark" data-v="stacked"></div>
+      <div class="tile tile--accent" data-v="stacked"></div>
+    </div>
+
+    <p class="label">Badge: Instagram profile picture, stickers</p>
+    <div class="sheet">
+      <div class="tile tile--light" data-v="badge"></div>
+      <div class="tile tile--dark" data-v="badge"></div>
+      <div class="tile tile--accent" data-v="badge"></div>
+    </div>
+
+    <p class="label">Icon: browser tab, app icon, watermark</p>
+    <div class="sheet">
+      <div class="tile tile--light" data-v="icon"></div>
+      <div class="tile tile--dark" data-v="icon"></div>
+      <div class="tile tile--accent" data-v="icon"></div>
+    </div>
+
+    <p class="label">Downloads</p>
+    <p style="color: var(--ink-soft);">PNG and SVG files are in <code>assets/logo/</code>, including <code>instagram-profile.png</code> (1080×1080) ready to upload.</p>
+  </div>
+
+  <div id="export"></div>
+
+  <script>
+    // The figure: a teaser (V-sit) balanced on a mat. --fig = figure colour, currentColor = mat.
+    function mark(size) {
+      return `<svg class="mark" viewBox="0 0 64 64" width="${size}" height="${size}" aria-hidden="true">
+        <line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <g fill="none" stroke="var(--fig, var(--clay))" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/>
+          <path d="M27 52.2 L54.5 31" stroke-width="3.8"/>
+          <path d="M21 32 L40.5 18" stroke-width="2.7"/>
+        </g>
+        <circle cx="17.5" cy="21.5" r="4.6" fill="var(--fig, var(--clay))"/>
+      </svg>`;
+    }
+
+    const variants = {
+      horizontal: (s = 1) => `<div class="lockup" style="zoom:${s}">${mark(58)}<div class="word word--h">The Mat<span>Pilates Club</span></div></div>`,
+      stacked: (s = 1) => `<div class="lockup lockup--stacked" style="zoom:${s}">${mark(84)}<div class="word word--s">The Mat<span>Pilates Club</span></div></div>`,
+      badge: (s = 1) => {
+        const id = "arc" + Math.random().toString(36).slice(2, 7);
+        return `<svg viewBox="0 0 240 240" width="${200 * s}" height="${200 * s}" aria-label="The Mat Pilates Club">
+          <defs>
+            <path id="${id}t" d="M 41.1 148.7 A 84 84 0 1 1 198.9 148.7"/>
+            <path id="${id}b" d="M 34 128 A 86 86 0 0 0 206 128"/>
+          </defs>
+          <circle cx="120" cy="120" r="114" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="120" cy="120" r="104" fill="none" stroke="currentColor" stroke-width=".8" opacity=".5"/>
+          <text font-family="DM Sans" font-weight="500" font-size="14" letter-spacing="4.2" fill="currentColor" text-anchor="middle">
+            <textPath href="#${id}t" startOffset="50%">THE MAT PILATES CLUB</textPath>
+          </text>
+          <text font-family="DM Sans" font-weight="500" font-size="11" letter-spacing="5" fill="currentColor" text-anchor="middle" opacity=".8">
+            <textPath href="#${id}b" startOffset="50%">· BRISTOL ·</textPath>
+          </text>
+          <g transform="translate(78 74) scale(1.32)">${mark(64).replace('<svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">', "").replace("</svg>", "")}</g>
+        </svg>`;
+      },
+      icon: (s = 1) => `<div style="width:${120 * s}px;height:${120 * s}px;border-radius:${28 * s}px;background:var(--cream);color:var(--ink);display:grid;place-items:center;box-shadow:0 1px 0 rgba(0,0,0,.05)">${mark(84 * s)}</div>`,
+    };
+
+    document.querySelectorAll("[data-v]").forEach((el) => (el.innerHTML = variants[el.dataset.v]()));
+
+    // Export mode, e.g. logo.html?only=badge&scale=5&bg=cream&fg=ink
+    const q = new URLSearchParams(location.search);
+    if (q.get("only")) {
+      document.body.classList.add("export");
+      const ex = document.getElementById("export");
+      const bg = q.get("bg"), fg = q.get("fg"), fig = q.get("fig");
+      if (bg) ex.style.background = bg === "none" ? "transparent" : `var(--${bg})`;
+      if (fg) ex.style.color = `var(--${fg})`;
+      if (fig) ex.style.setProperty("--fig", `var(--${fig})`);
+      ex.innerHTML = variants[q.get("only")](parseFloat(q.get("scale") || "1"));
+    }
+  </script>
+</body>
+</html>

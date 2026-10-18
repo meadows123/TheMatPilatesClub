@@ -1,0 +1,44 @@
+# Deploys the static site to Azure Static Web Apps on every push to main.
+#
+# Deployment token:
+#   The token secret was added to GitHub automatically by Azure when the
+#   Static Web App was linked to this repo.
+
+name: Deploy to Azure Static Web Apps
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: azure-static-web-app-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Copy only the public site into a clean folder, leaving out working
+      # files (backups, previews, mockups) and the database schema.
+      - name: Stage site files
+        run: |
+          mkdir -p site
+          cp *.html site/
+          rm -f site/_*.html site/options.html
+          cp -r css js assets site/
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GRAY_SMOKE_01C3B0103 }}
+          action: upload
+          app_location: site
+          skip_app_build: true

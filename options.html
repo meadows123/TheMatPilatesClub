@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Options | The Mat Pilates Club</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Anton&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/palette.js"></script>
+  <style>
+    .opt-head { padding: 64px 0 24px; text-align: center; }
+    .opt-head p { color: var(--ink-soft); max-width: 600px; margin: 0 auto; }
+
+    .palettes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .palette {
+      background: var(--white); border-radius: var(--radius); overflow: hidden;
+      border: 2px solid transparent; transition: border-color .2s;
+    }
+    .palette.is-current { border-color: var(--ink); }
+    .palette__hero { height: 120px; display: grid; place-items: center; font-family: var(--font-display); font-size: 1.5rem; }
+    .palette__swatches { display: flex; }
+    .palette__swatches span { flex: 1; height: 36px; }
+    .palette__body { padding: 20px; }
+    .palette__body h3 { margin-bottom: 4px; }
+    .palette__body p { font-size: .9rem; color: #6b625b; margin-bottom: 16px; }
+    .palette__body .btn { padding: .6em 1.3em; font-size: .85rem; margin: 0 6px 6px 0; }
+
+    .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .logo-card { border-radius: var(--radius); overflow: hidden; background: var(--white); }
+    .logo-card__show { display: grid; grid-template-columns: 1fr 1fr; }
+    .logo-card__show > div { min-height: 190px; display: grid; place-items: center; padding: 20px; }
+    .logo-card__light { background: var(--cream); color: var(--ink); }
+    .logo-card__dark { background: var(--ink); color: var(--cream); }
+    .logo-card__body { padding: 20px; }
+    .logo-card__body p { font-size: .9rem; color: var(--ink-soft); margin: 0; }
+
+    .lg-word { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1; text-align: center; }
+    .lg-word span { display: block; font-family: var(--font-body); font-size: .55rem; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; margin-top: 6px; opacity: .8; }
+    .lg-word--accent em { color: var(--clay); font-style: italic; font-weight: 500; }
+    .lg-svg { width: 100%; max-width: 150px; height: auto; }
+    .accent { color: var(--clay); }
+  </style>
+</head>
+<body data-no-promo>
+
+  <header class="site-header site-header--solid">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="The Mat Pilates Club home"><svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><line x1="6" y1="55" x2="58" y2="55" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><g fill="none" stroke="var(--clay)" stroke-linecap="round" stroke-linejoin="round"><path d="M27 52.2 C20 46.5 17.5 39 19.5 30.5" stroke-width="3.8"/><path d="M27 52.2 L54.5 31" stroke-width="3.8"/><path d="M21 32 L40.5 18" stroke-width="2.7"/></g><circle cx="17.5" cy="21.5" r="4.6" fill="var(--clay)"/></svg><span class="logo__text">The Mat<span>Pilates Club</span></span></a>
+      <nav class="nav" style="opacity:1; pointer-events:auto; position:static; flex-direction:row; background:none;">
+        <a href="index.html">← Back to site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 70px;">
+
+    <div class="container opt-head">
+      <span class="eyebrow">Design options</span>
+      <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem);">Colours &amp; logos</h1>
+      <p>Click <strong>Preview here</strong> to see the logos below in that palette, or <strong>Try on site</strong> to browse the whole website in it. Your choice is remembered while you browse.</p>
+    </div>
+
+    <!-- Colour palettes -------------------------------------------------- -->
+    <section class="section" style="padding-top: 24px;">
+      <div class="container">
+        <h2 style="font-size: 2rem;">1. Colour schemes</h2>
+        <div class="palettes">
+
+          <article class="palette" data-p="clay">
+            <div class="palette__hero" style="background:#4a3f38; color:#f7f2ec;">Clay &amp; Cream</div>
+            <div class="palette__swatches"><span style="background:#f7f2ec"></span><span style="background:#ece3d8"></span><span style="background:#c08a6d"></span><span style="background:#8f9e8b"></span><span style="background:#2f2a26"></span></div>
+            <div class="palette__body">
+              <h3>A · Clay &amp; Cream</h3>
+              <p>Current look. Warm, earthy and calm, like a sunlit studio. Feels premium but approachable.</p>
+              <button class="btn btn--outline" data-preview="clay">Preview here</button>
+              <a class="btn btn--primary" href="index.html?palette=clay">Try on site</a>
+            </div>
+          </article>
+
+          <article class="palette" data-p="sage">
+            <div class="palette__hero" style="background:#3a4236; color:#f5f3ec;">Sage &amp; Linen</div>
+            <div class="palette__swatches"><span style="background:#f5f3ec"></span><span style="background:#e6e6da"></span><span style="background:#6f8a6a"></span><span style="background:#c9a98a"></span><span style="background:#2c3029"></span></div>
+            <div class="palette__body">
+              <h3>B · Sage &amp; Linen</h3>
+              <p>Fresh, natural greens. Wellness and balance, with a slightly more grounded, outdoorsy feel.</p>
+              <button class="btn btn--outline" data-preview="sage">Preview here</button>
+              <a class="btn btn--primary" href="index.html?palette=sage">Try on site</a>
+            </div>
+          </article>
+
+          <article class="palette" data-p="blush">
+            <div class="palette__hero" style="background:#4a3532; color:#faf4f1;">Blush &amp; Mocha</div>
+            <div class="palette__swatches"><span style="background:#faf4f1"></span><span style="background:#f0e1db"></span><span style="background:#c48580"></span><span style="background:#b9a48f"></span><span style="background:#3b2c29"></span></div>
+            <div class="palette__body">
+              <h3>C · Blush &amp; Mocha</h3>
+              <p>Soft pinks and rich brown. Feminine, boutique and very "Instagrammable".</p>
+              <button class="btn btn--outline" data-preview="blush">Preview here</button>
+              <a class="btn btn--primary" href="index.html?palette=blush">Try on site</a>
+            </div>
+          </article>
+
+          <article class="palette" data-p="harbour">
+            <div class="palette__hero" style="background:#2f3c44; color:#f4f3f0;">Harbour Blue</div>
+            <div class="palette__swatches"><span style="background:#f4f3f0"></span><span style="background:#e3e6e6"></span><span style="background:#5f7d8c"></span><span style="background:#c2a27f"></span><span style="background:#222b31"></span></div>
+            <div class="palette__body">
+              <h3>D · Harbour Blue</h3>
+              <p>Cool slate blue with a sandy accent, a nod to Bristol's harbourside. Clean, calm and modern.</p>
+              <button class="btn btn--outline" data-preview="harbour">Preview here</button>
+              <a class="btn btn--primary" href="index.html?palette=harbour">Try on site</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Logos ------------------------------------------------------------ -->
+    <section class="section section--sand">
+      <div class="container">
+        <h2 style="font-size: 2rem;">2. Logo ideas</h2>
+        <p class="notice" style="margin: 0 0 24px; text-align: left;">✨ <strong>New:</strong> the finished logo (teaser figure on a mat), with every version and the downloads, is on the <a href="brand/logo.html">logo page</a>.</p>
+        <p style="color: var(--ink-soft); margin-bottom: 32px;">Shown on light and dark backgrounds, in the palette you're previewing. These are concepts; the chosen one can be refined (or redrawn by a designer) and used for Instagram too.</p>
+
+        <div class="logos">
+
+          <article class="logo-card">
+            <div class="logo-card__show">
+              <div class="logo-card__light"><div class="lg-word">The Mat<span>Pilates Club</span></div></div>
+              <div class="logo-card__dark"><div class="lg-word">The Mat<span>Pilates Club</span></div></div>
+            </div>
+            <div class="logo-card__body">
+              <h3>1 · Classic Wordmark</h3>
+              <p>Current logo. Elegant serif with spaced capitals. Simple, timeless and easy to read small.</p>
+            </div>
+          </article>
+
+          <article class="logo-card">
+            <div class="logo-card__show">
+              <div class="logo-card__light">
+                <svg class="lg-svg" viewBox="0 0 200 200" aria-label="Badge logo">
+                  <defs><path id="ring-a" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/></defs>
+                  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                  <text font-family="DM Sans" font-size="13" letter-spacing="4" fill="currentColor"><textPath href="#ring-a" textLength="430" lengthAdjust="spacing">THE MAT PILATES CLUB · BRISTOL ·</textPath></text>
+                  <text x="100" y="122" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="68" class="accent" fill="currentColor">M</text>
+                </svg>
+              </div>
+              <div class="logo-card__dark">
+                <svg class="lg-svg" viewBox="0 0 200 200" aria-hidden="true">
+                  <defs><path id="ring-b" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/></defs>
+                  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                  <text font-family="DM Sans" font-size="13" letter-spacing="4" fill="currentColor"><textPath href="#ring-b" textLength="430" lengthAdjust="spacing">THE MAT PILATES CLUB · BRISTOL ·</textPath></text>
+                  <text x="100" y="122" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="68" class="accent" fill="currentColor">M</text>
+                </svg>
+              </div>
+            </div>
+            <div class="logo-card__body">
+              <h3>2 · Circle Badge</h3>
+              <p>Name wraps around a monogram "M". Perfect as an Instagram profile picture, stickers and studio signage.</p>
+            </div>
+          </article>
+
+          <article class="logo-card">
+            <div class="logo-card__show">
+              <div class="logo-card__light">
+                <div style="text-align:center;">
+                  <svg class="lg-svg" viewBox="0 0 110 60" style="max-width:110px;" aria-label="Rolled mat logo">
+                    <path d="M30 30 a3 3 0 0 1 6 0 a6 6 0 0 1 -12 0 a9 9 0 0 1 18 0 a12 12 0 0 1 -24 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="accent"/>
+                    <rect x="30" y="40" width="72" height="4" rx="2" fill="currentColor" class="accent"/>
+                  </svg>
+                  <div class="lg-word" style="font-size:1.25rem; margin-top:10px;">The Mat<span>Pilates Club</span></div>
+                </div>
+              </div>
+              <div class="logo-card__dark">
+                <div style="text-align:center;">
+                  <svg class="lg-svg" viewBox="0 0 110 60" style="max-width:110px;" aria-hidden="true">
+                    <path d="M30 30 a3 3 0 0 1 6 0 a6 6 0 0 1 -12 0 a9 9 0 0 1 18 0 a12 12 0 0 1 -24 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="accent"/>
+                    <rect x="30" y="40" width="72" height="4" rx="2" fill="currentColor" class="accent"/>
+                  </svg>
+                  <div class="lg-word" style="font-size:1.25rem; margin-top:10px;">The Mat<span>Pilates Club</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-card__body">
+              <h3>3 · Rolled Mat</h3>
+              <p>A simple line drawing of a mat unrolling. Says "mat Pilates" instantly and works well as a small icon.</p>
+            </div>
+          </article>
+
+          <article class="logo-card">
+            <div class="logo-card__show">
+              <div class="logo-card__light">
+                <div style="text-align:center;">
+                  <svg class="lg-svg" viewBox="0 0 120 80" style="max-width:110px;" aria-label="Arch logo">
+                    <path d="M20 72 A40 40 0 0 1 100 72" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="accent"/>
+                    <path d="M34 72 A26 26 0 0 1 86 72" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+                    <circle cx="60" cy="16" r="5" fill="currentColor" class="accent"/>
+                  </svg>
+                  <div class="lg-word lg-word--accent" style="font-size:1.25rem; margin-top:8px;">The <em>Mat</em><span>Pilates Club</span></div>
+                </div>
+              </div>
+              <div class="logo-card__dark">
+                <div style="text-align:center;">
+                  <svg class="lg-svg" viewBox="0 0 120 80" style="max-width:110px;" aria-hidden="true">
+                    <path d="M20 72 A40 40 0 0 1 100 72" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="accent"/>
+                    <path d="M34 72 A26 26 0 0 1 86 72" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+                    <circle cx="60" cy="16" r="5" fill="currentColor" class="accent"/>
+                  </svg>
+                  <div class="lg-word lg-word--accent" style="font-size:1.25rem; margin-top:8px;">The <em>Mat</em><span>Pilates Club</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-card__body">
+              <h3>4 · Arch &amp; Sun</h3>
+              <p>A soft arch, like a bridge pose (and a wink at Bristol's bridges), with a rising sun. Calm, uplifting, distinctive.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero video ------------------------------------------------------- -->
+    <section class="section">
+      <div class="container">
+        <h2 style="font-size: 2rem;">3. Hero video</h2>
+        <p style="color: var(--ink-soft); margin-bottom: 32px;">Two free-licence stock clips from Mixkit. Option A is on the homepage now.</p>
+        <div class="split">
+          <div>
+            <video src="assets/hero.mp4" muted loop autoplay playsinline style="border-radius: var(--radius); width:100%;"></video>
+            <h3 style="margin-top: 16px;">A · Morning mat workout (current)</h3>
+          </div>
+          <div>
+            <video src="assets/hero-alt.mp4" muted loop autoplay playsinline style="border-radius: var(--radius); width:100%;"></video>
+            <h3 style="margin-top: 16px;">B · At-home Pilates session</h3>
+          </div>
+        </div>
+        <p style="color: var(--ink-soft); margin-top: 24px;">Best of all: a 10–20 second clip of her teaching, filmed on a phone in landscape. Real footage beats stock every time.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Live palette preview on this page
+    const cards = document.querySelectorAll(".palette");
+    function setPalette(p) {
+      if (p === "clay") document.documentElement.removeAttribute("data-palette");
+      else document.documentElement.setAttribute("data-palette", p);
+      try { localStorage.setItem("mpc-palette", p); } catch (e) {}
+      cards.forEach((c) => c.classList.toggle("is-current", c.dataset.p === p));
+    }
+    document.querySelectorAll("[data-preview]").forEach((b) =>
+      b.addEventListener("click", () => setPalette(b.dataset.preview))
+    );
+    setPalette(document.documentElement.getAttribute("data-palette") || "clay");
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
